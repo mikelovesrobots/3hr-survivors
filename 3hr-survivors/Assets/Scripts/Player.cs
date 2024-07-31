@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f; // Adjust the speed of the player
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
     private Vector2 moveVelocity;
 
     void Awake()
@@ -23,7 +22,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Get input from WASD keys
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveInput.Normalize(); // Normalize the input to ensure consistent movement speed in all directions
         moveVelocity = moveInput * moveSpeed;
     }
@@ -32,11 +31,5 @@ public class Player : MonoBehaviour
     {
         // Move the player
         rb.velocity = moveVelocity;
-
-        // move camera to follow the player
-        var cameraPosition = Camera.main.transform.position;
-        cameraPosition.x = transform.position.x;
-        cameraPosition.y = transform.position.y;
-        Camera.main.transform.position = cameraPosition;
     }
 }
