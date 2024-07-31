@@ -1,10 +1,16 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     public static Player instance;
     public float moveSpeed = 5f; // Adjust the speed of the player
+
+    // projectiles
+    public GameObject projectilePrefab; // Assign the projectile prefab in the inspector
+    public float spawnInterval = 2f; // Time interval between projectile spawns
 
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -17,6 +23,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(SpawnProjectileRoutine());
     }
 
     void Update()
@@ -31,5 +38,46 @@ public class Player : MonoBehaviour
     {
         // Move the player
         rb.velocity = moveVelocity;
+    }
+
+    IEnumerator SpawnProjectileRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(spawnInterval);
+            SpawnProjectile();
+        }
+    }
+
+    void SpawnProjectile()
+    {
+        GameObject nearestEnemy = FindNearestEnemy();
+        if (nearestEnemy != null)
+        {
+            Vector3 direction = (nearestEnemy.transform.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            Instantiate(projectilePrefab, transform.position, rotation);
+        }
+    }
+
+    GameObject FindNearestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject nearestEnemy = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestEnemy = enemy;
+            }
+        }
+
+        return nearestEnemy;
     }
 }

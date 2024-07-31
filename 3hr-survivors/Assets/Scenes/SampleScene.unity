@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -284,6 +285,18 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a7c919b40b54c0cbdf9d33726af77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &555936447
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  projectilePrefab: {fileID: 8640990020880831987, guid: da87ffc9d2c80428587ead3c87d4c5f3, type: 3}
+  spawnInterval: 0.5
 --- !u!50 &555936452
 Rigidbody2D:
   serializedVersion: 4
