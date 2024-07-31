@@ -3,12 +3,18 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    public static Player instance;
     public float moveSpeed = 5f; // Adjust the speed of the player
     public SpriteFlipbookAnimator spriteFlipbookAnimator;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 moveVelocity;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
