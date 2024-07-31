@@ -47,5 +47,11 @@ public class Player : MonoBehaviour
         {
             spriteFlipbookAnimator.isPlaying = false;
         }
+
+        // move camera to follow the player
+        var cameraPosition = Camera.main.transform.position;
+        cameraPosition.x = transform.position.x;
+        cameraPosition.y = transform.position.y;
+        Camera.main.transform.position = cameraPosition;
     }
 }
