@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd20aaba43b2049e9ab61f7eb57e515d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  hitPoints: 3
+  moveSpeed: 1.5
+  hitPoints: 1
 --- !u!212 &7533760718098069161
 SpriteRenderer:
   m_ObjectHideFlags: 0
