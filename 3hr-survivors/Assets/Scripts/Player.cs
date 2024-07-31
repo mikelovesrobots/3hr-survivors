@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
     public float moveSpeed = 5f; // Adjust the speed of the player
-    public SpriteFlipbookAnimator spriteFlipbookAnimator;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -33,26 +32,6 @@ public class Player : MonoBehaviour
     {
         // Move the player
         rb.velocity = moveVelocity;
-
-        // Rotate the sprite based on the direction of movement
-        if (moveVelocity.x > 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (moveVelocity.x < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        // If moveVelocity is not zero, play the walk animation
-        if (moveVelocity != Vector2.zero)
-        {
-            spriteFlipbookAnimator.isPlaying = true;
-        }
-        else
-        {
-            spriteFlipbookAnimator.isPlaying = false;
-        }
 
         // move camera to follow the player
         var cameraPosition = Camera.main.transform.position;
