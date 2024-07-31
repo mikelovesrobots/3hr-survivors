@@ -16,4 +16,14 @@ public class Projectile : MonoBehaviour
         // Destroy the projectile after a certain amount of seconds
         Destroy(gameObject, lifespan);
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy;
+        if (collision.gameObject.TryGetComponent<Enemy>(out enemy))
+        {
+            enemy.Hit();
+            Destroy(gameObject);
+        }
+    }
 }

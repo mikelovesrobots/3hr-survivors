@@ -6,12 +6,22 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public int hitPoints = 3; // Number of hitpoints the enemy has
     private Rigidbody2D rb;
     private Vector2 direction;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void Hit()
+    {
+        hitPoints--;
+        if (hitPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
@@ -27,4 +37,5 @@ public class Enemy : MonoBehaviour
     {
         rb.velocity = direction.normalized * moveSpeed;
     }
+
 }

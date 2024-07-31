@@ -223,9 +223,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 0.99971724
+    y: 0.040723983
+    width: 0.56577086
+    height: 0.5656109
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -616,7 +616,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3246392785889597300
+--- !u!1001 &622088431
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -668,6 +668,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9067583080079004777, guid: 1890c5799fa9c439380b18f9d7b50f85, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -681,4 +685,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 555936449}
   - {fileID: 597267456}
-  - {fileID: 3246392785889597300}
+  - {fileID: 622088431}
