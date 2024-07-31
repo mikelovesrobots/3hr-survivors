@@ -3,17 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteHitFlasher))]
 public class Player : MonoBehaviour
 {
     public static Player instance;
     public float moveSpeed = 5f; // Adjust the speed of the player
+    public int hitPoints = 10;
 
     // projectiles
     public GameObject projectilePrefab; // Assign the projectile prefab in the inspector
     public float spawnInterval = 2f; // Time interval between projectile spawns
 
-    private Rigidbody2D rb;
+    // movement
     private Vector2 moveVelocity;
+
+    // dependencies
+    private Rigidbody2D rb;
+    private SpriteHitFlasher spriteHitFlasher;
 
     void Awake()
     {
@@ -23,6 +29,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteHitFlasher = GetComponent<SpriteHitFlasher>();
         StartCoroutine(SpawnProjectileRoutine());
     }
 
@@ -79,5 +86,24 @@ public class Player : MonoBehaviour
         }
 
         return nearestEnemy;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy;
+        if (collision.gameObject.TryGetComponent<Enemy>(out enemy))
+        {
+            Hit();
+        }
+    }
+
+    public void Hit()
+    {
+        hitPoints--;
+        spriteHitFlasher.Flash();
+        if (hitPoints <= 0)
+        {
+            Destroy(gameObject, 0.1f);
+        }
     }
 }

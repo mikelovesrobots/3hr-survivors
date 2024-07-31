@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3612609500646579335}
   - component: {fileID: 1976968228124777243}
   - component: {fileID: 4681422174195412090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -210,5 +210,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32647408a7184a1abacb9cf522e4d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashColor: {r: 0.93333334, g: 0.92156863, b: 0.84313726, a: 1}
   flashDuration: 0.1
