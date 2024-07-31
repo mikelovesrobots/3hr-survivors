@@ -10,12 +10,13 @@ public class SpriteFlipbookAnimator : MonoBehaviour
     public float framesPerSecond = 10.0f;
 
     public SpriteRenderer spriteRenderer;
+    public bool isPlaying = true;
 
     void Update()
     {
         // calculate the index
         int index = (int)(Time.time * framesPerSecond) % frames.Length;
         // set the texture
-        spriteRenderer.sprite = frames[index];
+        spriteRenderer.sprite = isPlaying ? frames[index] : frames[0];
     }
 }
