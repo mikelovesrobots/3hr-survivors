@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3806483751448548756}
+  - component: {fileID: 726337402256827080}
   - component: {fileID: 7533760718098069161}
   - component: {fileID: 1098270781642812594}
   - component: {fileID: 9067583080079004777}
-  - component: {fileID: 726337402256827080}
   - component: {fileID: 3612609500646579335}
   - component: {fileID: 1976968228124777243}
+  - component: {fileID: 4681422174195412090}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -37,6 +38,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726337402256827080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72107900815248063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd20aaba43b2049e9ab61f7eb57e515d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  hitPoints: 3
 --- !u!212 &7533760718098069161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -135,21 +150,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &726337402256827080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72107900815248063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd20aaba43b2049e9ab61f7eb57e515d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  hitPoints: 3
+  m_Constraints: 4
 --- !u!114 &3612609500646579335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,3 +198,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 0.8}
   m_Direction: 0
+--- !u!114 &4681422174195412090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72107900815248063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32647408a7184a1abacb9cf522e4d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
