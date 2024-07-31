@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Android;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteHitFlasher))]
@@ -8,7 +9,7 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
     public float moveSpeed = 5f; // Adjust the speed of the player
-    public int hitPoints = 10;
+    public HitPointBar hitPointBar;
 
     // projectiles
     public GameObject projectilePrefab; // Assign the projectile prefab in the inspector
@@ -99,9 +100,9 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        hitPoints--;
+        hitPointBar.hitPoints--;
         spriteHitFlasher.Flash();
-        if (hitPoints <= 0)
+        if (hitPointBar.hitPoints <= 0)
         {
             Destroy(gameObject, 0.1f);
         }
